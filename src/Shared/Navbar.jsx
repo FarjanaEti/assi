@@ -15,20 +15,16 @@ const Navbar = () => {
     }
     const navOptions = <>
         <li><Link to="/">Home</Link></li>
-        <li><Link to="/menu">Our Menu</Link></li>
-     <li><Link to="/order/salad">Order Food</Link></li>  
+        <li><Link to="/dashboard">Dashboard</Link></li>
+     <li><Link to="/order/salad">Available Coin </Link></li>  
      
      <li>
             <Link to="/dashboard/cart">
-                {/* <button className="btn">
-                    <FaCartArrowDown className="mt-2"></FaCartArrowDown> 
-                    
-                </button> */}
+                
             </Link>
         </li>
      {
         user? <>
-        {/* <span>{user?.displayName}</span> */}
         <button onClick={handleLogOut} className="btn btn-ghost">LogOut</button>
     </> : <>
     <li><Link to="/login">LogIn</Link></li>
@@ -51,9 +47,11 @@ const Navbar = () => {
                             {navOptions}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost normal-case text-xl">
-                              <GiTakeMyMoney className="text-yellow-500"></GiTakeMyMoney>
-                              Earnify</a>
+                    <Link to={'/'} className="btn btn-ghost normal-case text-xl">
+                    <GiTakeMyMoney className="text-yellow-500"></GiTakeMyMoney>
+                              Earnify
+                    </Link>
+                    
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">

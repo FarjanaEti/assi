@@ -6,6 +6,8 @@ import Swal from 'sweetalert2'
 import { AuthContext } from "../../Provider/AuthProvider";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import SocialLogin from "../socialLogin/SocialLogin";
+import lottiAnimaton from '../../assets/Animation - 1733851369003.json'
+import Lottie from "lottie-react";
 
 const SignUp = () => {
     const axiosPublic = useAxiosPublic();
@@ -56,13 +58,13 @@ const SignUp = () => {
             </Helmet>
             <div className="hero min-h-screen bg-base-200 pt-20">
                 <div className="hero-content flex-col lg:flex-row-reverse">
-                    <div className="text-center lg:text-left">
-                        <h1 className="text-5xl font-bold">Sign up now!</h1>
-                        <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                    </div>
+                <div className="text-center lg:text-left h-96 md:w-[500px]">
+            <Lottie animationData={lottiAnimaton}></Lottie>
+             </div>
                     {/* name */}
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+                        <p className='font-semibold text-2xl my-3'>Register Here</p>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Name</span>
@@ -120,7 +122,7 @@ const SignUp = () => {
                                 <input className="btn btn-primary" type="submit" value="Sign Up" />
                             </div>
                         </form>
-                        <p><small>Already have an account <Link to="/login">Login</Link></small></p>
+                        <p><small className="ml-10">Already have an account <Link to="/login">Login</Link></small></p>
                         <SocialLogin></SocialLogin>
                     </div>
                 </div>
