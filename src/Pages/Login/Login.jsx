@@ -94,14 +94,15 @@ const Login = () => {
                                 </label>
                             </div>
                             <div className="form-control">
-                                <label className="label">
+                                <label  className="label">
                                     <LoadCanvasTemplate />
                                 </label>
-                                <input onBlur={handleValidateCaptcha} type="text" name="captcha" placeholder="type the captcha above" className="input input-bordered" />
+                                <input onBlur={handleValidateCaptcha}  type="text" name="captcha" placeholder="type the captcha above" className="input input-bordered" />
 
                             </div>
                             <div className="form-control mt-6">
-                                <input disabled={disabled} className="btn btn-primary" type="submit" value="Login" />
+                              {/* To DO---- disabled={disabled} */}
+                                <input  className="btn btn-primary" type="submit" value="Login" />
                             </div>
                         </form>
                         <p><small className='ml-10'>New Here? <Link to="/signup">Create an account</Link> </small></p>
