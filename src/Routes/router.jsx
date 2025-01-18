@@ -7,6 +7,10 @@ import SignUp from "../Pages/Login/SignUp";
 import Login from "../Pages/Login/Login";
 import Dashboard from "../Layout/Dashboard";
 import DashTop from "../Pages/Dashboard/DashTop";
+import AddTask from "../Pages/Buyer/AddTask";
+import BuyerTask from "../Pages/Buyer/BuyerTask";
+import BuyerHome from "../Pages/Buyer/BuyerHome";
+import Purchase from "../Pages/Buyer/Purchase";
 
 
 
@@ -33,14 +37,27 @@ import DashTop from "../Pages/Dashboard/DashTop";
       path:'dashboard',
       element:<Dashboard></Dashboard>,
       children: [
+       
         {
-            index: true, 
-            element: <DashTop></DashTop>,
+          path:'buyerHome',
+          element:<BuyerHome></BuyerHome>
         },
         {
-            path: "dashTop",
-            element: <DashTop></DashTop>,
+          index: true, 
+          element: <DashTop></DashTop>,
+      },
+        {
+          path:'addTask',
+          element:<AddTask></AddTask>
         },
+        {
+          path:'myTask',
+          element:<BuyerTask></BuyerTask>
+        },
+        {
+          path:'Purchase',
+          element:<Purchase></Purchase>
+        }
     ],
     }
   ]);

@@ -6,7 +6,6 @@ const PrivateRout = ({children}) => {
     const { user, loading } = useContext(AuthContext);
     const location = useLocation();
   
-
     if(loading){
         return <span className="loading loading-ring loading-lg"></span>
     }

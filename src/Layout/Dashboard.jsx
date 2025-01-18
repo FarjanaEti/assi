@@ -3,9 +3,10 @@ import useAdmin from "../hooks/useAdmin";
 import { FaCoins, FaHome, FaTasks, FaUser, FaUtensils } from "react-icons/fa";
 import { FaMoneyCheckDollar } from "react-icons/fa6";
 import { MdAssuredWorkload } from "react-icons/md";
+import DashTop from "../Pages/Dashboard/DashTop";
 
 const Dashboard = () => {
-    const [ isLoading] = useAdmin(); // Get role and loading state
+    const [ isLoading] = useAdmin(); 
    const role="buyer"
     if (isLoading) {
         return (
@@ -16,11 +17,12 @@ const Dashboard = () => {
     }
 
     return (
-        <div >
-              <div className="flex-1 py-8">
+        <div className="flex flex-col">
+              <div className=" py-8">
                 {/* Dashboard Content */}
-                <Outlet></Outlet>
-            </div>                 
+               <DashTop></DashTop>
+            </div>   
+            <div className="flex">
             <div className="w-64 min-h-screen px-8 border bg-orange-400 text-white">
                 <ul className="menu p-4">
                     {role === "admin" ? (
@@ -67,22 +69,22 @@ const Dashboard = () => {
                     ) : role === "buyer" ? (
                        <>
                        <li>
-                                <NavLink to="/dashboard/adminHome">
+                                <NavLink to="/dashboard/buyerHome">
                                     <FaHome></FaHome>
                                    Buyer Home</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/dashboard/addItems">
+                                <NavLink to="/dashboard/addTask">
                                     <FaUtensils></FaUtensils>
                                     Add New task</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/dashboard/manageItems">
+                                <NavLink to="/dashboard/myTask">
                                     <FaTasks></FaTasks>
                                     My Task</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/dashboard/bookings">
+                                <NavLink to="/dashboard/Purchase">
                                     <FaCoins></FaCoins>
                                     Purchase Coin</NavLink>
                             </li>
@@ -93,6 +95,11 @@ const Dashboard = () => {
                     )}
                 </ul>
             </div>
+            <div className="flex-1 py-8">
+                
+                <Outlet></Outlet>
+            </div>
+            </div>              
         </div>
     );
 };
