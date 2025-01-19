@@ -1,6 +1,7 @@
 import React from 'react';
 import useTask from '../../hooks/useTask';
 import useCart from '../../hooks/useCart';
+import { Link } from 'react-router-dom';
 
 const TaskList = () => {
         const [tasks]=useTask() 
@@ -30,12 +31,10 @@ const TaskList = () => {
               <span className="font-semibold">Required Worker:</span> {task.required_workers}
             </p>
             <div className="card-actions mt-4">
-              <button
-                className="btn btn-accent w-full"
-                onClick={() => navigate(`/task-details/${task._id}`)}
-              >
-                View Details
-              </button>
+            <Link to={`/dashboard/tasks/${task._id}`}> <button
+                  className="btn btn-accent" >
+                  View Details
+                </button></Link>
             </div>
           </div>
         </div>

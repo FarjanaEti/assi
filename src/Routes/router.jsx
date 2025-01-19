@@ -12,6 +12,7 @@ import BuyerTask from "../Pages/Buyer/BuyerTask";
 import BuyerHome from "../Pages/Buyer/BuyerHome";
 import Purchase from "../Pages/Buyer/Purchase";
 import TaskList from "../Pages/Worker/TaskList";
+import TaskDetails from "../Pages/Worker/TaskDetails";
 
 
 
@@ -62,6 +63,10 @@ import TaskList from "../Pages/Worker/TaskList";
         {
           path:'taskList',
           element:<TaskList></TaskList>
+        },
+        {
+          path:'tasks/:id',
+          element:<TaskDetails></TaskDetails>
         }
     ],
     }
