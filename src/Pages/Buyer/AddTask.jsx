@@ -16,6 +16,7 @@ const AddTask = () => {
   const axiosPublic = useAxiosPublic();
   const axiosSecure = useAxiosSecure();
   const [cart] = useCart();
+  //console.log(cart[0].email);
   const [userCoin, setUserCoin] = useState(cart[0]?.coin || 0);
 
   const onSubmit = async (data) => {
@@ -36,7 +37,7 @@ const AddTask = () => {
       const res = await axiosPublic.post(image_hosting_api, imageFile, {
         headers: { "content-type": "multipart/form-data" },
       });
-      console.log(res.data)
+     // console.log(res.data)
       //  now send the task data to the server with the image url
       if (res.data.success) {
         const taskData = {
@@ -47,8 +48,10 @@ const AddTask = () => {
           completion_date: data.completion_date,
           submission_info: data.submission_info,
           task_image_url: res.data.data.display_url,
+          email:cart[0].email,
+          name:cart[0].name
         };
-
+      console.log(taskData)
         // Save task to database
         const taskRes = await axiosSecure.post("/tasks", taskData);
 

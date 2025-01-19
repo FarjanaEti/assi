@@ -11,6 +11,7 @@ import AddTask from "../Pages/Buyer/AddTask";
 import BuyerTask from "../Pages/Buyer/BuyerTask";
 import BuyerHome from "../Pages/Buyer/BuyerHome";
 import Purchase from "../Pages/Buyer/Purchase";
+import TaskList from "../Pages/Worker/TaskList";
 
 
 
@@ -57,6 +58,10 @@ import Purchase from "../Pages/Buyer/Purchase";
         {
           path:'Purchase',
           element:<Purchase></Purchase>
+        },
+        {
+          path:'taskList',
+          element:<TaskList></TaskList>
         }
     ],
     }
