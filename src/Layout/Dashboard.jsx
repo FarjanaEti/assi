@@ -1,20 +1,18 @@
 import { NavLink, Outlet } from "react-router-dom";
-import useAdmin from "../hooks/useAdmin";
 import { FaCoins, FaHome, FaTasks, FaUser, FaUtensils } from "react-icons/fa";
 import { FaMoneyCheckDollar } from "react-icons/fa6";
 import { MdAssuredWorkload } from "react-icons/md";
 import DashTop from "../Pages/Dashboard/DashTop";
+import useRole from "../hooks/useRole";
 
 const Dashboard = () => {
-    const [ isLoading] = useAdmin(); 
-   const role="buyer"
-    if (isLoading) {
-        return (
-            <div className="flex justify-center items-center min-h-screen">
-                <p className="text-xl font-semibold">Loading Role...</p>
-            </div>
-        );
-    }
+    const [role] = useRole(); 
+   console.log(role)
+   //const role="worker"
+  
+   if (role === undefined) {
+    return <div>Loading...</div>;
+}
 
     return (
         <div className="flex flex-col">
@@ -43,10 +41,10 @@ const Dashboard = () => {
                                     Manage Task</NavLink>
                             </li>
                         </>
-                    ) : role === "worker" ? (
+                    ) : role === "Worker" ? (
                        <>
                        <li>
-                                <NavLink to="/dashboard/adminHome">
+                                <NavLink to="/dashboard/workerHome">
                                     <FaHome></FaHome>
                                     Worker Home</NavLink>
                             </li>
@@ -66,7 +64,7 @@ const Dashboard = () => {
                                    Withdrawals</NavLink>
                             </li>
                        </>
-                    ) : role === "buyer" ? (
+                    ) : role === "Buyer" ? (
                        <>
                        <li>
                                 <NavLink to="/dashboard/buyerHome">

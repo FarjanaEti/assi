@@ -8,7 +8,7 @@ const useAdmin = () => {
     const { data: role, isLoading } = useQuery({
         queryKey: ["role"], // Query key (used for caching)
         queryFn: async () => {
-           // const response = await axiosSecure.get("/users/role"); // Adjust your API endpoint
+            const response = await axiosSecure.get("/users/role"); // Adjust your API endpoint
             return response.data?.role; 
         },
         refetchOnWindowFocus: false, // Optionally disable refetching when window is focused

@@ -8,7 +8,7 @@ import Swal from "sweetalert2";
 const BuyerHome = () => {
   const [task] = useTask();
   const [submission, refetch] = useSubmission();
-  console.log(refetch)
+  //console.log(refetch)
   const axiosSecure = useAxiosSecure();
   const [modal, setModal] = useState(null);
 

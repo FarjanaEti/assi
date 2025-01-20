@@ -14,6 +14,7 @@ import Purchase from "../Pages/Buyer/Purchase";
 import TaskList from "../Pages/Worker/TaskList";
 import TaskDetails from "../Pages/Worker/TaskDetails";
 import MySubmissions from "../Pages/Worker/MySubmission";
+import WorkerHome from "../Pages/Worker/WorkerHome";
 
 
 
@@ -60,6 +61,11 @@ import MySubmissions from "../Pages/Worker/MySubmission";
         {
           path:'Purchase',
           element:<Purchase></Purchase>
+        },
+        //worker
+        {
+       path:'workerHome',
+       element:<WorkerHome></WorkerHome>
         },
         {
           path:'taskList',
