@@ -7,7 +7,7 @@ import DashTop from "../Pages/Dashboard/DashTop";
 
 const Dashboard = () => {
     const [ isLoading] = useAdmin(); 
-   const role="worker"
+   const role="buyer"
     if (isLoading) {
         return (
             <div className="flex justify-center items-center min-h-screen">
@@ -75,7 +75,7 @@ const Dashboard = () => {
                             </li>
                             <li>
                                 <NavLink to="/dashboard/addTask">
-                                    <FaUtensils></FaUtensils>
+                                    <FaTasks></FaTasks>
                                     Add New task</NavLink>
                             </li>
                             <li>

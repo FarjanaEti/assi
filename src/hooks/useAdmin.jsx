@@ -9,10 +9,10 @@ const useAdmin = () => {
         queryKey: ["role"], // Query key (used for caching)
         queryFn: async () => {
            // const response = await axiosSecure.get("/users/role"); // Adjust your API endpoint
-            return response.data?.role; // Mock role response
+            return response.data?.role; 
         },
         refetchOnWindowFocus: false, // Optionally disable refetching when window is focused
-        retry: false, // Avoid retrying failed requests
+        retry: false, 
     });
 
     if (isLoading) {

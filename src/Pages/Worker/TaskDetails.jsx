@@ -51,7 +51,7 @@ const TaskDetails = () => {
                    Swal.fire({
                        position: "top-end",
                        icon: "success",
-                       title: "User created successfully.",
+                       title: "Task submitted successfully.",
                        showConfirmButton: false,
                        timer: 1500,
                    });
