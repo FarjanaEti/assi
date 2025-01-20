@@ -8,9 +8,11 @@ import Swal from "sweetalert2";
 const BuyerHome = () => {
   const [task] = useTask();
   const [submission, refetch] = useSubmission();
+  console.log(refetch)
   const axiosSecure = useAxiosSecure();
   const [modal, setModal] = useState(null);
 
+  //approve status
   const handleApprove = async (submission) => {
       try {
         const { data } = await axiosSecure.patch(`/submission/${submission._id}`, {
@@ -32,20 +34,29 @@ const BuyerHome = () => {
       }
     };
     
-  
-//     const handleReject = async (submissionId) => {
-//       try {
-//         const { data } = await axiosSecure.patch(`/submission/${submissionId}`, {
-//           status: "rejected",
-//         });
-  
-//         if (data.modifiedCount > 0) {
-//           alert("Submission rejected!");
-//         }
-//       } catch (error) {
-//         console.error("Error rejecting submission:", error);
-//       }
-//     };
+  //reject status
+  const handleReject = async (submission) => {
+      console.log(submission)
+      try {
+        const { data } = await axiosSecure.patch(`/submission/reject/${submission._id}`, {
+          taskId: submission.task_id, 
+        });
+    
+        if (data.modifiedCount > 0) {
+            Swal.fire({
+                  position: "top-end",
+                   icon: "success",
+                   title: "Rejected by buyer.",
+                   showConfirmButton: false,
+                   timer: 1500,
+                 });
+          refetch(); 
+        }
+      } catch (error) {
+        console.error("Error rejecting submission:", error);
+      }
+    };
+    
 
   return (
     <div className="container mx-auto p-4">
@@ -112,7 +123,7 @@ const BuyerHome = () => {
                   </button>
                   <button
                     className="bg-red-500 text-white px-4 py-1 rounded"
-                    onClick={() => handleReject(sub.id)}
+                    onClick={() => handleReject(sub)}
                   >
                     Reject
                   </button>
