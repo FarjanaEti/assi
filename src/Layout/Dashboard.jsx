@@ -56,7 +56,7 @@ const Dashboard = () => {
                                     Task List</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/dashboard/manageItems">
+                                <NavLink to="/dashboard/mySubmission">
                                 <MdAssuredWorkload />
                                    My submission</NavLink>
                             </li>
