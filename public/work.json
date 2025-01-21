@@ -1,0 +1,32 @@
+[
+  {
+    "icon": "FaBriefcase",
+    "title": "Explore Micro-Jobs",
+    "description": "Find and complete small tasks from anywhere to earn money on your schedule."
+  },
+  {
+    "icon": "FaBell",
+    "title": "Stay Updated",
+    "description": "Get instant notifications for new tasks and never miss an earning opportunity."
+  },
+  {
+    "icon": "FaDollarSign",
+    "title": "Track Your Earnings",
+    "description": "Keep a close eye on your balance and withdraw your earnings whenever you want."
+  },
+  {
+    "icon": "FaWifi",
+    "title": "Work Offline",
+    "description": "Accept tasks, work offline, and submit them when you're back online."
+  },
+  {
+    "icon": "FaShieldAlt",
+    "title": "Secure Payments",
+    "description": "All payments are processed securely, ensuring a worry-free experience."
+  },
+  {
+    "icon": "BiSupport",
+    "title": "Reliable Support",
+    "description": "Get dedicated support to assist you with any queries or issues you face."
+  }
+]
