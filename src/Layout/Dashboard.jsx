@@ -6,9 +6,9 @@ import DashTop from "../Pages/Dashboard/DashTop";
 import useRole from "../hooks/useRole";
 
 const Dashboard = () => {
-   // const [role] = useRole(); 
-   //console.log(role)
-   const role="admin"
+    const [role] = useRole(); 
+   console.log(role)
+   //const role="admin"
   
    if (role === undefined) {
     return <div>Loading...</div>;
@@ -41,7 +41,7 @@ const Dashboard = () => {
                                     Manage Task</NavLink>
                             </li>
                         </>
-                    ) : role === "Worker" ? (
+                    ) : role === "worker" ? (
                        <>
                        <li>
                                 <NavLink to="/dashboard/workerHome">
@@ -64,7 +64,7 @@ const Dashboard = () => {
                                    Withdrawals</NavLink>
                             </li>
                        </>
-                    ) : role === "Buyer" ? (
+                    ) : role === "buyer" ? (
                        <>
                        <li>
                                 <NavLink to="/dashboard/buyerHome">
