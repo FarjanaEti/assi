@@ -8,7 +8,7 @@ import useRole from "../hooks/useRole";
 const Dashboard = () => {
     const [role] = useRole(); 
    console.log(role)
-   //const role="worker"
+   //const role="Buyer"
   
    if (role === undefined) {
     return <div>Loading...</div>;
