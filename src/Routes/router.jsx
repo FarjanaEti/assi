@@ -15,6 +15,9 @@ import TaskList from "../Pages/Worker/TaskList";
 import TaskDetails from "../Pages/Worker/TaskDetails";
 import MySubmissions from "../Pages/Worker/MySubmission";
 import WorkerHome from "../Pages/Worker/WorkerHome";
+import AdminHome from "../Pages/Admin/AdminHome";
+import AllUsers from "../Pages/Admin/AllUsers";
+import AllTask from "../Pages/Admin/AllTask";
 
 
 
@@ -41,7 +44,20 @@ import WorkerHome from "../Pages/Worker/WorkerHome";
       path:'dashboard',
       element:<Dashboard></Dashboard>,
       children: [
-       
+        //Admin
+        {
+       path:'adminHome',
+       element:<AdminHome></AdminHome>
+        },
+        {
+         path:'allUsers',
+         element:<AllUsers></AllUsers>
+        },
+        {
+        path:'allTask',
+        element:<AllTask></AllTask>
+        },
+       //Buyer
         {
           path:'buyerHome',
           element:<BuyerHome></BuyerHome>

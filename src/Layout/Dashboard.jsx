@@ -6,9 +6,9 @@ import DashTop from "../Pages/Dashboard/DashTop";
 import useRole from "../hooks/useRole";
 
 const Dashboard = () => {
-    const [role] = useRole(); 
-   console.log(role)
-   //const role="Buyer"
+   // const [role] = useRole(); 
+   //console.log(role)
+   const role="admin"
   
    if (role === undefined) {
     return <div>Loading...</div>;
@@ -21,7 +21,7 @@ const Dashboard = () => {
                <DashTop></DashTop>
             </div>   
             <div className="flex">
-            <div className="w-64 min-h-screen px-8 border bg-orange-400 text-white">
+            <div className="w-64 min-h-screen px-8 border bg-cyan-300 text-white">
                 <ul className="menu p-4">
                     {role === "admin" ? (
                         <>
@@ -31,12 +31,12 @@ const Dashboard = () => {
                                     Admin Home</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/dashboard/users">
+                                <NavLink to="/dashboard/allUsers">
                                     <FaUser></FaUser>
                                     Manage Users</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/dashboard/manageTask">
+                                <NavLink to="/dashboard/allTask">
                                     <FaTasks></FaTasks>
                                     Manage Task</NavLink>
                             </li>
