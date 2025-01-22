@@ -37,7 +37,7 @@ const features = [
 
 const Workplace = () => {
   return (
-    <div className="bg-gray-100 py-16 px-6 text-center">
+    <div className="bg-gray-100 mt-10 py-16 px-6 text-center">
       <h1 className="text-4xl font-bold text-gray-800 mb-4">Earn Through Micro-Jobs</h1>
       <p className="text-lg text-gray-600 mb-12">
         Discover a simple and flexible way to earn money by completing small tasks online or offline.
