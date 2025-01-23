@@ -2,15 +2,13 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from 'swiper/modules';
 
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import { useEffect, useState } from "react";
 import { Rating } from "@smastrom/react-rating";
 import '@smastrom/react-rating/style.css'
 import SectionTitle from "../../Component/SectionTitle";
-
-
+import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
 
 const Testimonials = () => {
     const [reviews, setReviews] = useState([]);
@@ -40,8 +38,17 @@ const Testimonials = () => {
                                 value={review.rating}
                                 readOnly
                             />
-                            <p className="py-8">{review.details}</p>
-                            <h3 className="text-2xl text-orange-400">{review.name}</h3>
+                            <img
+                       className="mx-auto h-20 mt-3 w-20 rounded-full object-cover"
+                        src={review.photo}
+                         alt={review.name}
+                />
+                            <h3 className="text-2xl mt-2 text-orange-400">{review.name}</h3>
+                           <div className="flex items-center text-center">
+                           <FaQuoteLeft className="mr-3 mb-2"></FaQuoteLeft>
+                            <p className="py-8">{review.quote}</p>
+                            <FaQuoteRight className="ml-3 mb-2"></FaQuoteRight>
+                           </div>
                         </div>
                     </SwiperSlide>)
                 }
