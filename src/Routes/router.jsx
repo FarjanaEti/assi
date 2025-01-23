@@ -18,6 +18,7 @@ import WorkerHome from "../Pages/Worker/WorkerHome";
 import AdminHome from "../Pages/Admin/AdminHome";
 import AllUsers from "../Pages/Admin/AllUsers";
 import AllTask from "../Pages/Admin/AllTask";
+import Payment from "../Pages/Buyer/Payment";
 
 
 
@@ -44,6 +45,10 @@ import AllTask from "../Pages/Admin/AllTask";
       path:'dashboard',
       element:<Dashboard></Dashboard>,
       children: [
+        {
+        path:'payment',
+        element:<Payment></Payment>
+        },
         //Admin
         {
        path:'adminHome',
