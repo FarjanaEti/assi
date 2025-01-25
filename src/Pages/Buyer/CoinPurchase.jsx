@@ -6,7 +6,7 @@ import useCart from "../../hooks/useCart";
 import { Helmet } from "react-helmet-async";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const CoinPurchase = () => {
   const [error, setError] = useState("");
@@ -15,19 +15,18 @@ const CoinPurchase = () => {
   const stripe = useStripe();
   const elements = useElements();
   const axiosSecure=useAxiosSecure();
-  const [userdata]=useCart();
   const {user}=useAuth()
-  const navigate=useNavigate()
-  const totalPrice=userdata.reduce((total,item)=>total+item.coin,0)
-  console.log(user)
+  const {state}=useLocation();
+  const { price, coins } = state || {};
+  
 
   useEffect (()=>{
-   axiosSecure.post('/create-payment-intent',{price: totalPrice})
+   axiosSecure.post('/create-payment-intent',{price})
    .then(res=>{
-    console.log(res.data)
+    //console.log(res.data)
     setClientSecret(res.data.clientSecret)
    })
-  },[axiosSecure,totalPrice])
+  },[axiosSecure,price])
   
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -79,10 +78,10 @@ const CoinPurchase = () => {
       // now save the payment in the database
       const payment = {
           email: user.email,
-          price: totalPrice,
+          price,
           transactionId: paymentIntent.id,
           date: new Date(), 
-          coinsPurchased: totalPrice * 10,
+          coinsPurchased: coins,
           
       }
 
@@ -97,7 +96,7 @@ const CoinPurchase = () => {
               showConfirmButton: false,
               timer: 1500
           });
-          navigate('/')
+        
       }
 
   }

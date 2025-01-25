@@ -16,7 +16,8 @@ const Purchase = () => {
         <div key={index} className="card p-6 border rounded shadow-lg">
           <h2 className="text-xl font-bold">{pkg.coins} Coins</h2>
           <p className="text-gray-600">${pkg.price}</p>
-          <Link to="/dashboard/payment">
+          <Link to="/dashboard/payment" 
+           state={{ price: pkg.price, coins: pkg.coins }}>
           <button
             className="mt-4 bg-blue-500 text-white py-2 px-4 rounded"
           >

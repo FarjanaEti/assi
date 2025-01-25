@@ -21,6 +21,7 @@ import AllTask from "../Pages/Admin/AllTask";
 import Payment from "../Pages/Buyer/Payment";
 import PrivateRout from "./PrivateRoute";
 import AdminRout from "./AdminRout";
+import { History } from "swiper/modules";
 
 
 
@@ -103,5 +104,10 @@ import AdminRout from "./AdminRout";
           element:<MySubmissions></MySubmissions>
         }
     ],
+    
+    },
+    {
+      path:'history',
+      element:<History></History>
     }
   ]);

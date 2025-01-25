@@ -5,6 +5,7 @@ import { MdAssuredWorkload } from "react-icons/md";
 import DashTop from "../Pages/Dashboard/DashTop";
 import useRole from "../hooks/useRole";
 import { Helmet } from "react-helmet-async";
+import History from "../Pages/Buyer/History";
 
 const Dashboard = () => {
     const [role] = useRole(); 
@@ -99,8 +100,10 @@ const Dashboard = () => {
             <div className="flex-1 py-8">
                 
                 <Outlet></Outlet>
+               
             </div>
-            </div>              
+            </div>   
+            <History></History>           
         </div>
     );
 };
