@@ -2,6 +2,7 @@ import React from 'react';
 import useTask from '../../hooks/useTask';
 import useSubmission from '../../hooks/useSubmission';
 import useUsers from '../../hooks/useUsers';
+import { Helmet } from 'react-helmet-async';
 
 const AdminHome = () => {
     const [task]=useTask();
@@ -16,6 +17,9 @@ const AdminHome = () => {
    // const totalPayments = withdrawRequests.reduce((sum, req) => sum + req.amount, 0);
  return (
   <div className="container mx-auto p-4">
+     <Helmet>
+        <title>Earnify | DashBoard | Admin Home</title>
+     </Helmet>
       <h1 className="text-2xl font-bold mb-4">Admin Home</h1>
 
       {/* Heading */}

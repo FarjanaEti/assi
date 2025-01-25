@@ -2,6 +2,7 @@ import { FaEdit, FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useTask from "../../hooks/useTask";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -37,6 +38,9 @@ const AllTask = () => {
 
     return (
         <div>
+             <Helmet>
+       <title>Earnify | DashBoard | AllTask</title>
+            </Helmet>
           <div className="flex justify-evenly bg-violet-200">
                 <h2 className="text-3xl">All Task</h2>
                 <h2 className="text-3xl">Total Task: {tasks.length}</h2>

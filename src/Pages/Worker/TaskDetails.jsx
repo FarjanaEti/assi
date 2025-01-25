@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const TaskDetails = () => {
      const { id } = useParams();   
@@ -69,6 +70,9 @@ const TaskDetails = () => {
 
    return (
     <div className="p-5">
+       <Helmet>
+          <title>Earnify | DashBoard | Task Details</title>
+        </Helmet>
       <h1 className="text-2xl font-bold mb-4">Task Details</h1>
 
       {task ? (

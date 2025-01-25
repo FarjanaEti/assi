@@ -3,6 +3,7 @@ import useTask from '../../hooks/useTask';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import useAxiosPublic from '../../hooks/useAxiosPublic';
+import { Helmet } from 'react-helmet-async';
 
 const BuyerTask = () => {
     const [task, loading, refetch] = useTask();
@@ -82,6 +83,9 @@ const BuyerTask = () => {
 }
     return (
         <div className="p-4">
+           <Helmet>
+                <title>Earnify | DashBoard | Buyer Task</title>
+            </Helmet>
         <h1 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4">My Tasks</h1>
         <div className="overflow-x-auto">
           <table className="min-w-full border-collapse border border-gray-300">

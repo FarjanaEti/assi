@@ -3,6 +3,7 @@ import useTask from "../../hooks/useTask";
 import useSubmission from "../../hooks/useSubmission";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 
 const BuyerHome = () => {
@@ -60,6 +61,9 @@ const BuyerHome = () => {
 
   return (
     <div className="container mx-auto p-4">
+       <Helmet>
+                      <title>Earnify | DashBoard |Buyer Home</title>
+                  </Helmet>
       <h1 className="text-2xl font-bold mb-4">Buyer Dashboard</h1>
 
       {/* Heading */}

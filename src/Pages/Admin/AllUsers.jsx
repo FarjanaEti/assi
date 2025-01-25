@@ -4,6 +4,7 @@ import { FaTrashAlt, FaUsers } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useUsers from "../../hooks/useUsers";
+import { Helmet } from "react-helmet-async";
 
 
 const AllUsers = () => {
@@ -59,6 +60,9 @@ const AllUsers = () => {
 
     return (
         <div>
+             <Helmet>
+         <title>Earnify | DashBoard | AllUser</title>
+               </Helmet>
             <div className="flex justify-evenly bg-violet-200">
                 <h2 className="text-3xl">All Users</h2>
                 <h2 className="text-3xl">Total Users: {users.length}</h2>

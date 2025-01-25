@@ -6,6 +6,7 @@ import useAxiosPublic from "../../hooks/useAxiosPublic";
 import useCart from "../../hooks/useCart";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import SectionTitle from "../../Component/SectionTitle";
+import { Helmet } from "react-helmet-async";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
@@ -81,6 +82,9 @@ const AddTask = () => {
 
   return (
     <div>
+       <Helmet>
+                      <title>Earnify | DashBoard | AddTask</title>
+                  </Helmet>
       <SectionTitle heading="Add a Task" subHeading="Define the task details" />
       <p className="text-right mb-4">Available Coins: {userCoin}</p>
       <form onSubmit={handleSubmit(onSubmit)}>

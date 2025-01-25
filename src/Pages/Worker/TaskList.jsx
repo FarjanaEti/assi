@@ -2,6 +2,7 @@ import React from 'react';
 import useTask from '../../hooks/useTask';
 import useCart from '../../hooks/useCart';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const TaskList = () => {
         const [tasks]=useTask() 
@@ -11,6 +12,9 @@ const TaskList = () => {
        
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
+       <Helmet>
+                      <title>Earnify | DashBoard | Tasklist</title>
+                  </Helmet>
       {validTasks.map((task) => (
         <div
           key={task._id}

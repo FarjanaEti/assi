@@ -4,6 +4,7 @@ import { FaMoneyCheckDollar } from "react-icons/fa6";
 import { MdAssuredWorkload } from "react-icons/md";
 import DashTop from "../Pages/Dashboard/DashTop";
 import useRole from "../hooks/useRole";
+import { Helmet } from "react-helmet-async";
 
 const Dashboard = () => {
     const [role] = useRole(); 
@@ -15,6 +16,9 @@ const Dashboard = () => {
 
     return (
         <div className="flex flex-col">
+            <Helmet>
+                <title>Earnify | DashBoard</title>
+            </Helmet>
               <div className=" py-8">
                 {/* Dashboard Content */}
                <DashTop></DashTop>

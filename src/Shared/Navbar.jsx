@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
  import { useContext } from "react";
 import { GiTakeMyMoney } from "react-icons/gi";
 import { AuthContext } from "../Provider/AuthProvider";
-
+import 'animate.css';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);   
@@ -41,8 +41,8 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <Link to={'/'} className="btn btn-ghost normal-case text-xl">
-                    <GiTakeMyMoney className="text-yellow-500"></GiTakeMyMoney>
-                              Earnify
+                    <GiTakeMyMoney className="text-yellow-500  text-2xl"></GiTakeMyMoney>
+                               <span className="animate__animated animate__pulse animate__infinite animate__delay-1s text-3xl">Earnify</span>
                     </Link>
                     
                 </div>
@@ -58,8 +58,8 @@ const Navbar = () => {
               alt="user"
               className="w-12 h-10 rounded-full border"
             /> : <></> }
-                
-                    <a className="btn ">Join as Developer</a>
+                <Link className="btn" to={'https://github.com/'}>Join as Developer</Link>
+                  
                 </div>
             </div>
         </>

@@ -2,15 +2,19 @@ import Lottie from "lottie-react";
 import lottieAnimation1 from "../../assets/Animation - 1737625402201.json";
 import lottieAnimation2 from "../../assets/Animation - 1737625588591.json";
 import lottieAnimation3 from "../../assets/Animation - 1737625677961.json";
+import { motion } from "motion/react";
+import { easeOut } from 'motion';
 
 const How_it_work = () => {
   return (
     <div className="bg-gray-100 py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto text-center">
         {/* Section Header */}
+        
         <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
           How It Works
         </h2>
+                 
         <p className="mt-4 text-lg text-gray-600">
           Earn money in just three simple steps. It’s easy to get started!
         </p>
@@ -57,7 +61,7 @@ const How_it_work = () => {
       {/* Call-to-Action */}
       <div className="mt-12 text-center">
         <a
-          href="/register"
+          href="/signup"
           className="inline-block px-6 py-3 bg-cyan-300 text-white text-lg font-medium rounded-lg shadow-md hover:bg-blue-700"
         >
           Get Started Now

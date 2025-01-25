@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useCart from "../../hooks/useCart";
 import useAuth from "../../hooks/useAuth";
+import { Helmet } from "react-helmet-async";
 
 const CoinPurchase = () => {
   const [error, setError] = useState("");
@@ -69,6 +70,9 @@ const CoinPurchase = () => {
 
   return (
     <form onSubmit={handleSubmit}>
+       <Helmet>
+          <title>Earnify | DashBoard | Purchase</title>
+         </Helmet>
       <CardElement
         options={{
           style: {

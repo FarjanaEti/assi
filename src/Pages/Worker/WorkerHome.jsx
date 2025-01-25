@@ -1,6 +1,7 @@
 import React from 'react';
 import useTask from '../../hooks/useTask';
 import useSubmission from '../../hooks/useSubmission';
+import { Helmet } from 'react-helmet-async';
 
 const WorkerHome = () => {
     const [tasks]=useTask();
@@ -14,6 +15,9 @@ const WorkerHome = () => {
 
      return (                         
   <div className="p-4">
+     <Helmet>
+                    <title>Earnify | DashBoard | Worker Home</title>
+                </Helmet>
             <h2 className="text-xl font-bold mb-4">Worker Dashboard</h2>
 
             {/* Header */}

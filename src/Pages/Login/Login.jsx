@@ -4,15 +4,16 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
 import { Helmet } from 'react-helmet-async';
 import { AuthContext } from '../../Provider/AuthProvider';
-import SocialLogin from '../socialLogin/SocialLogin';
+//import SocialLogin from '../socialLogin/SocialLogin';
 import lotiieLogin from '../../assets/Animation - 1733900171268.json'
 import Lottie from 'lottie-react';
+import { FaGoogle } from 'react-icons/fa';
 
 
 const Login = () => {
     console.log(useContext(AuthContext));
     const [disabled, setDisabled] = useState(true);
-    const { signIn } = useContext(AuthContext);
+    const { signIn,googleSignIn } = useContext(AuthContext);
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -65,6 +66,31 @@ const Login = () => {
         }
     }
 
+    //google 
+     //login with google
+     const handleGoogleLogIn=()=>{
+        googleSignIn()
+      .then((res) => {
+        const user = res.user;
+        console.log(user)
+        //setUser(user);
+        //toast.success(`Welcome, ${user.displayName}!`);
+        Swal.fire({
+                           position: "top-end",
+                           icon: "success",
+                           title: "User logged in successfully.",
+                           showConfirmButton: false,
+                           timer: 1000,
+                       });
+        setTimeout(() => {
+          navigate('/');
+        }, 1000);
+      })
+      .catch((err) => {
+        console.log(err)
+        alert(`Google Login failed: ${err.message}`);
+      });  
+       } 
     return (
         <>
             <Helmet>
@@ -105,8 +131,10 @@ const Login = () => {
                                 <input  className="btn btn-primary" type="submit" value="Login" />
                             </div>
                         </form>
+                        <div>         
+                        <button onClick={handleGoogleLogIn} className='btn ml-7 mb-3'><FaGoogle ></FaGoogle> LogIn With Google</button>
                         <p><small className='ml-10'>New Here? <Link to="/signup">Create an account</Link> </small></p>
-                        <SocialLogin></SocialLogin>
+                        </div>
                     </div>
                 </div>
             </div>

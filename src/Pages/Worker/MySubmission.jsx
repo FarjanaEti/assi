@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 
 const MySubmissions = () => {
@@ -58,6 +59,9 @@ const MySubmissions = () => {
 
   return (
     <div className="p-5">
+       <Helmet>
+        <title>Earnify | DashBoard | Worker Home</title>
+         </Helmet>
       <h1 className="text-2xl font-bold mb-4">My Submissions</h1>
       {submissions.length > 0 ? (
         <>
