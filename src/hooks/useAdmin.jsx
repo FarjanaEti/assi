@@ -1,25 +1,22 @@
 import { useQuery } from "@tanstack/react-query";
-import useAxiosSecure from "./useAxiosSecure"; // assuming you have this for secure API calls
+import useAuth from "./useAuth";
+import useAxiosSecure from "./useAxiosSecure";
+
 
 const useAdmin = () => {
-    const axiosSecure = useAxiosSecure(); // Secure Axios instance
-
-    // Query to fetch the user role (admin status) based on user email
-    const { data: role, isLoading } = useQuery({
-        queryKey: ["role"], // Query key (used for caching)
+    const { user, loading } = useAuth();
+    const axiosSecure = useAxiosSecure();
+    const { data: isAdmin, isPending: isAdminLoading } = useQuery({
+        queryKey: [user?.email, 'isAdmin'],
+        enabled: !loading,
         queryFn: async () => {
-            const response = await axiosSecure.get("/users/role"); // Adjust your API endpoint
-            return response.data?.role; 
-        },
-        refetchOnWindowFocus: false, // Optionally disable refetching when window is focused
-        retry: false, 
-    });
-
-    if (isLoading) {
-        return ["", true]; // Return an empty role and loading state
-    }
-
-    return [role, isLoading]; // Return the role and loading state
+            console.log('asking or checking is admin', user)
+            const res = await axiosSecure.get(`/users/admin/${user.email}`);
+            // console.log(res.data);
+            return res.data?.admin;
+        }
+    })
+    return [isAdmin, isAdminLoading]
 };
 
 export default useAdmin;

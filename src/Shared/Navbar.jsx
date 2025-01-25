@@ -3,9 +3,11 @@ import { Link } from "react-router-dom";
 import { GiTakeMyMoney } from "react-icons/gi";
 import { AuthContext } from "../Provider/AuthProvider";
 import 'animate.css';
+import useCart from "../hooks/useCart";
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);   
+    const [users]=useCart()
     console.log(user)
     const handleLogOut = () => {
         logOut()
@@ -15,7 +17,10 @@ const Navbar = () => {
     const navOptions = <>
     <li><Link to="/">Home</Link></li>  
     {user && <li><Link to="/dashboard">Dashboard</Link></li>} 
-    {user && <li><Link to="/order/salad">Available Coin</Link></li>} 
+    {user && <li><Link>Available Coin:
+    
+    
+     <span className="font-bold">{users[0]?.coin || 0}</span></Link></li>} 
     {
         user ?  
             <button onClick={handleLogOut} className="">LogOut</button>
@@ -54,7 +59,7 @@ const Navbar = () => {
                 <div className="navbar-end">
                     {/* User Profile Image */}
                     {user? <img
-              src={user.photoURL ||  "https://i.ibb.co/1TxrJFN/462561728-536882932418932-6619261142512956761-n.jpg"}
+              src={user.url ||  "https://picsum.photos/150"}
               alt="user"
               className="w-12 h-10 rounded-full border"
             /> : <></> }

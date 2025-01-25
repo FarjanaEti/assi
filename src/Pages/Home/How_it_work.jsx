@@ -2,8 +2,7 @@ import Lottie from "lottie-react";
 import lottieAnimation1 from "../../assets/Animation - 1737625402201.json";
 import lottieAnimation2 from "../../assets/Animation - 1737625588591.json";
 import lottieAnimation3 from "../../assets/Animation - 1737625677961.json";
-import { motion } from "motion/react";
-import { easeOut } from 'motion';
+
 
 const How_it_work = () => {
   return (
@@ -36,7 +35,7 @@ const How_it_work = () => {
         {/* Step 2 */}
         <div className="flex flex-col items-center text-center bg-white shadow-lg rounded-lg p-6">
         <div>
-          <Lottie className="h-32" animationData={lottieAnimation2} loop autoplay />
+          <Lottie className="h-32" animationData={lottieAnimation3} loop autoplay />
           </div>
           <h3 className="mt-4 text-xl font-semibold text-gray-900">
             Browse Tasks
@@ -49,7 +48,7 @@ const How_it_work = () => {
         {/* Step 3 */}
         <div className="flex flex-col items-center text-center bg-white shadow-lg rounded-lg p-6">
         <div>
-          <Lottie className="h-32" animationData={lottieAnimation3} loop autoplay />
+          <Lottie className="h-32" animationData={lottieAnimation2} loop autoplay />
           </div>
           <h3 className="mt-4 text-xl font-semibold text-gray-900">Get Paid</h3>
           <p className="mt-2 text-gray-600">

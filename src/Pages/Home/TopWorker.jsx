@@ -24,7 +24,7 @@ const TopWorker = () => {
                              
           <div
             key={worker._id}
-            className="p-4 shadow-lg rounded-lg bg-teal-100 text-center"
+            className="p-4 shadow-lg rounded-lg bg-cyan-100 text-center"
           >
             <img
               src={worker.url || "https://picsum.photos/150"}

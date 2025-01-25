@@ -8,7 +8,7 @@ import { Helmet } from "react-helmet-async";
 
 const Dashboard = () => {
     const [role] = useRole(); 
-   //const role="worker"
+   //const role="admin"
   
    if (role === undefined) {
     return <div>Loading...</div>;

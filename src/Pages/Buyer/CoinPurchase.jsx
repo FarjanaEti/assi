@@ -2,23 +2,29 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useCart from "../../hooks/useCart";
-import useAuth from "../../hooks/useAuth";
+
 import { Helmet } from "react-helmet-async";
+import useAuth from "../../hooks/useAuth";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const CoinPurchase = () => {
   const [error, setError] = useState("");
   const [clientSecret,setClientSecret]=useState('')
+  const [transactionId, setTransactionId] = useState('');
   const stripe = useStripe();
   const elements = useElements();
   const axiosSecure=useAxiosSecure();
-  const [user]=useCart();
-  const {users}=useAuth();
-  const totalPrice=user.reduce((total,item)=>total+item.coin,0)
-  
+  const [userdata]=useCart();
+  const {user}=useAuth()
+  const navigate=useNavigate()
+  const totalPrice=userdata.reduce((total,item)=>total+item.coin,0)
+  console.log(user)
+
   useEffect (()=>{
    axiosSecure.post('/create-payment-intent',{price: totalPrice})
    .then(res=>{
-    console.log(res.data.clientSecret)
+    console.log(res.data)
     setClientSecret(res.data.clientSecret)
    })
   },[axiosSecure,totalPrice])
@@ -41,33 +47,64 @@ const CoinPurchase = () => {
       type: "card",
       card,
     });
-
+    console.log('Payment method created:', paymentMethod);
     if (error) {
       console.log('pay  error',error)
       setError(error.message)
     }
-
+    
    else{
     console.log('pay',paymentMethod)
     setError("")
    }
    //confirm payment
-   const {paymentIntent, errors} = await stripe.confirmCardPayment(clientSecret, {
-    payment_method: paymentMethod.id,
-    billing_details: {
-      email: users?.email || 'anonymous',
-      name: users?.name || 'anonymous',
-    },
+   const {paymentIntent, error:confirmError} = await stripe.confirmCardPayment(clientSecret, {
+    payment_method: {
+      card:card,
+      billing_details: {
+        email: user?.email || 'anonymous',
+        name: user?.name || 'anonymous',
+      },
+    }
   });
-   if(errors){
-    console.log('confirm error')
-   }
-   else{
-    console.log('payment intent',paymentIntent)
-   }
+  if (confirmError) {
+    console.error('Confirm payment error:', confirmError);
+    setError(confirmError.message);
+  } 
+  else {
+    if (paymentIntent.status === 'succeeded') {
+      console.log('transaction id', paymentIntent.id);
+      setTransactionId(paymentIntent.id);
+
+      // now save the payment in the database
+      const payment = {
+          email: user.email,
+          price: totalPrice,
+          transactionId: paymentIntent.id,
+          date: new Date(), 
+          coinsPurchased: totalPrice * 10,
+          
+      }
+
+      const res = await axiosSecure.post('/payments', payment);
+      console.log('payment saved', res.data);
+     // refetch();
+      if (res.data?.paymentResult?.insertedId) {
+          Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Purchase complete",
+              showConfirmButton: false,
+              timer: 1500
+          });
+          navigate('/')
+      }
+
+  }
+
     }
      
-
+  }
   return (
     <form onSubmit={handleSubmit}>
        <Helmet>

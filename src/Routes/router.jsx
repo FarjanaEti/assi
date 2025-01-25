@@ -19,6 +19,8 @@ import AdminHome from "../Pages/Admin/AdminHome";
 import AllUsers from "../Pages/Admin/AllUsers";
 import AllTask from "../Pages/Admin/AllTask";
 import Payment from "../Pages/Buyer/Payment";
+import PrivateRout from "./PrivateRoute";
+import AdminRout from "./AdminRout";
 
 
 
@@ -43,7 +45,7 @@ import Payment from "../Pages/Buyer/Payment";
     },
     {
       path:'dashboard',
-      element:<Dashboard></Dashboard>,
+      element:<PrivateRout><Dashboard></Dashboard></PrivateRout> ,
       children: [
         {
         path:'payment',
@@ -52,15 +54,15 @@ import Payment from "../Pages/Buyer/Payment";
         //Admin
         {
        path:'adminHome',
-       element:<AdminHome></AdminHome>
+       element:<AdminRout><AdminHome></AdminHome></AdminRout>
         },
         {
          path:'allUsers',
-         element:<AllUsers></AllUsers>
+         element:<AdminRout><AllUsers></AllUsers></AdminRout> 
         },
         {
         path:'allTask',
-        element:<AllTask></AllTask>
+        element: <AdminRout><AllTask></AllTask></AdminRout>
         },
        //Buyer
         {

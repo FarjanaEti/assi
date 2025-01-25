@@ -18,8 +18,8 @@ const SocialLogin = () => {
         const userInfo = {
           email: user?.email,
           name: user?.displayName,
-          role: 'Buyer', 
-          coins: 50,
+          role: 'buyer', 
+          coin: 50,
         };
 
         // Send user info to your backend
