@@ -4,35 +4,57 @@ import useSubmission from "../../hooks/useSubmission";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
+import useUsers from "../../hooks/useUsers";
 
 
 const BuyerHome = () => {
   const [task] = useTask();
+  const [users]=useUsers()
+
   const [submission, refetch] = useSubmission();
-  //console.log(refetch)
   const axiosSecure = useAxiosSecure();
   const [modal, setModal] = useState(null);
 
+  console.log(users)
   //approve status
   const handleApprove = async (submission) => {
-      try {
-        const { data } = await axiosSecure.patch(`/submission/${submission._id}`, {
-          status: "approved",
-        });
+    console.log(submission)
+    try {
+      const { data } = await axiosSecure.patch(`/submission/${submission._id}`, {
+        status: "approved",
+      });
+  
+      if (data.modifiedCount > 0) {
+        const worker = users.find(user => user.email === submission.worker_email);
+       console.log(worker)
+        if (worker) {
+          const WorkerCoin = (worker.coin || 0) + submission.payable_amount;
     
-        if (data.modifiedCount > 0) {
-           Swal.fire({
+          console.log(WorkerCoin)
+          // Update worker coins in the backend
+          const coinUpdate = await axiosSecure.patch(`/user/coin/${worker._id}`, {
+            coin: WorkerCoin,
+          });
+  
+          if (coinUpdate.data.modifiedCount > 0) {
+            Swal.fire({
               position: "top-end",
-               icon: "success",
-               title: "Approved by buyer.",
-               showConfirmButton: false,
-               timer: 1500,
-             });
-             refetch(); // Refetch the submissions to update the UI
+              icon: "success",
+              title: "Task approved and worker's coins updated.",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+            refetch(); // Refetch data to update the UI
+          } else {
+            console.error("Failed to update worker's coins in the backend.");
+          }
+        } else {
+          console.error("Worker not found in the user list.");
         }
-      } catch (error) {
-        console.error("Error approving submission:", error);
       }
+    } catch (error) {
+      console.error("Error approving submission:", error);
+    }
     };
     
   //reject status

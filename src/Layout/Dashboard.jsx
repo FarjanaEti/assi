@@ -9,7 +9,7 @@ import History from "../Pages/Buyer/History";
 
 const Dashboard = () => {
     const [role] = useRole(); 
-   //const role="admin"
+   //const role="buyer"
   
    if (role === undefined) {
     return <div>Loading...</div>;
@@ -63,7 +63,7 @@ const Dashboard = () => {
                                    My submission</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/dashboard/bookings">
+                                <NavLink to="/dashboard/withdraw">
                                 <FaMoneyCheckDollar />
                                    Withdrawals</NavLink>
                             </li>
