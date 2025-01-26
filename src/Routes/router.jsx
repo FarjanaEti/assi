@@ -22,6 +22,7 @@ import Payment from "../Pages/Buyer/Payment";
 import PrivateRout from "./PrivateRoute";
 import AdminRout from "./AdminRout";
 import { History } from "swiper/modules";
+import Withdraw from "../Pages/Worker/Withdraw";
 
 
 
@@ -102,6 +103,10 @@ import { History } from "swiper/modules";
         {
           path:'mySubmission',
           element:<MySubmissions></MySubmissions>
+        },
+        {
+          path:'withdraw',
+          element:<Withdraw></Withdraw>
         }
     ],
     
