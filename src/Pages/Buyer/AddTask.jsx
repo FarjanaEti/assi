@@ -5,7 +5,6 @@ import Swal from "sweetalert2";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import useCart from "../../hooks/useCart";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
-import SectionTitle from "../../Component/SectionTitle";
 import { Helmet } from "react-helmet-async";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
@@ -47,27 +46,23 @@ const AddTask = () => {
           submission_info: data.submission_info,
           task_image_url: res.data.data.display_url,
           email:cart[0].email,
-          name:cart[0].name
+          name:cart[0].name,
+          total_payment: totalPay,
         };
       console.log(taskData)
         // Save task to database
         const taskRes = await axiosSecure.post("/tasks", taskData);
-
-        if (taskRes.data.insertedId) {
+        
+        console.log(taskRes.data);
+        if (taskRes.data.success) {
+          
           Swal.fire({
             icon: "success",
             title: "Task Added",
             text: `Task "${data.task_title}" has been added successfully.`,
           });
-
-          //To Dooo
-          // Update user's coins
-        //   const remainingCoin = userCoin - totalPay;
-        //   setUserCoin(remainingCoin);
-
-        //   // Assuming there's a server endpoint to update user's coins
-        //   await axiosSecure.post("/update-coins", { coins: remainingCoin });
-
+          //const remainingCoin = userCoin - totalPay;
+          setUserCoin(prevCoin => prevCoin - totalPay);
           reset();
         }
       }
@@ -81,12 +76,15 @@ const AddTask = () => {
   };
 
   return (
-    <div>
+    <div className="ml-5">
        <Helmet>
                       <title>Earnify | DashBoard | AddTask</title>
                   </Helmet>
-      <SectionTitle heading="Add a Task" subHeading="Define the task details" />
-      <p className="text-right mb-4">Available Coins: {userCoin}</p>
+      
+      <div className="p-4 bg-blue-100 rounded shadow">
+        <p className="text-3xl text-center">Add New Task</p>
+      <p className="text-center mb-4">Available Coins: {userCoin}</p>
+      </div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="form-control w-full my-6">
           <label className="label">

@@ -1,3 +1,4 @@
+import { div } from "motion/react-client";
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -11,15 +12,20 @@ const Purchase = () => {
   ];
 
   return (
-    <div className="coin-packages grid grid-cols-2 gap-6">
+    <div>
+    <div className="p-4 bg-blue-100 rounded shadow ml-5 mb-3">
+        <p className="text-3xl text-center">Purchases Coin</p>
+      
+      </div>
+    <div className="coin-packages grid grid-cols-2 gap-6 ml-5">
       {packages.map((pkg, index) => (
-        <div key={index} className="card p-6 border rounded shadow-lg">
+        <div key={index} className="card p-6 border text-center rounded shadow-lg">
           <h2 className="text-xl font-bold">{pkg.coins} Coins</h2>
           <p className="text-gray-600">${pkg.price}</p>
           <Link to="/dashboard/payment" 
            state={{ price: pkg.price, coins: pkg.coins }}>
           <button
-            className="mt-4 bg-blue-500 text-white py-2 px-4 rounded"
+            className="mt-4 bg-cyan-100  py-2 px-4 rounded"
           >
             Buy Now
           </button>
@@ -27,6 +33,7 @@ const Purchase = () => {
          
         </div>
       ))}
+    </div>
     </div>
   );
 };
