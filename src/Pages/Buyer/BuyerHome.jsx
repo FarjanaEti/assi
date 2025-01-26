@@ -15,7 +15,10 @@ const BuyerHome = () => {
   const axiosSecure = useAxiosSecure();
   const [modal, setModal] = useState(null);
 
-  console.log(users)
+ //total pay
+  const totalPayment = submission.reduce((total, sub) => {
+    return sub.status === "approved" ? total + sub.payable_amount : total;
+  }, 0);
   //approve status
   const handleApprove = async (submission) => {
     console.log(submission)
@@ -105,9 +108,7 @@ const BuyerHome = () => {
         </div>
         <div className="p-4 bg-yellow-100 rounded shadow">
           <h2 className="font-semibold">Total Payment</h2>
-          <button className="bg-gray-500 text-white px-4 py-2 rounded">
-            Payment Info (Coming Soon)
-          </button>
+          <p>${totalPayment.toFixed(2)}</p>
         </div>
       </div>
 
