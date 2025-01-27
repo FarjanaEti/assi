@@ -1,10 +1,11 @@
-import useAxiosPublic from './useAxiosPublic';
-import { useQuery } from '@tanstack/react-query';
+import { useQuery, useQueryClient } from "@tanstack/react-query";
+import useAxiosPublic from "./useAxiosPublic";
 
-const useSubmission= () => {
+const useSubmission = () => {
   const axiosPublic = useAxiosPublic();
-
-  const { data: task = [], isLoading: loading, refetch } = useQuery({
+  const queryClient = useQueryClient();
+  
+  const { data: submission = [], isLoading: loading, refetch } = useQuery({
     queryKey: ['submission'],
     queryFn: async () => {
       const res = await axiosPublic.get('/submission');
@@ -12,7 +13,7 @@ const useSubmission= () => {
     },
   });
 
-  return [task, loading, refetch];
+  return { submission, refetch, queryClient };
 };
 
 export default useSubmission;

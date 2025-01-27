@@ -4,8 +4,10 @@ import Swal from 'sweetalert2';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import useAxiosPublic from '../../hooks/useAxiosPublic';
 import { Helmet } from 'react-helmet-async';
+import useAuth from '../../hooks/useAuth';
 
 const BuyerTask = () => {
+  const {user}=useAuth();
     const [task, loading, refetch] = useTask();
     console.log(task)
     const [updateTask, setUpdateTask] = useState(null)
@@ -14,6 +16,8 @@ const BuyerTask = () => {
     if (loading) {
       return <p>Loading tasks...</p>;
     }
+
+    const userTasks = task.filter((t) => t.email === user.email);
     
     const handleUpdateTask = async (update) => {
         try {
@@ -43,11 +47,11 @@ const BuyerTask = () => {
         }
     };
     const openUpdateTaskModal = (task) => {
-        setUpdateTask(task); // Set the task to be edited
+        setUpdateTask(task); 
       };
     
       const closeUpdateTaskModal = () => {
-        setUpdateTask(null); // Clear the edit state
+        setUpdateTask(null); 
       };
 
     const handleDeleteTask=(task)=>{
@@ -65,7 +69,7 @@ const BuyerTask = () => {
                     const res = await axiosSecure.delete(`/tasks/${task._id}`);
                     // console.log(res.data);
                     if (res.data.deletedCount > 0) {
-                        // refetch to update the ui
+                       
                         refetch();
                         Swal.fire({
                             position: "top-end",
@@ -100,7 +104,7 @@ const BuyerTask = () => {
               </tr>
             </thead>
             <tbody>
-              {task.map((task) => (
+              {userTasks.map((task) => (
                 <tr key={task.id} className="hover:bg-gray-100 text-sm md:text-base">
               <td className="border border-gray-300 px-2 md:px-4 py-2">{task.task_title}</td>
                   <td>

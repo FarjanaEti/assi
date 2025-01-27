@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 import useTask from "../../hooks/useTask";
-import useSubmission from "../../hooks/useSubmission";
+//import useSubmission from "../../hooks/useSubmission";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
 import useUsers from "../../hooks/useUsers";
+import useSubmission from "../../hooks/useSubmission";
 
 
 const BuyerHome = () => {
   const [task] = useTask();
   const [users]=useUsers()
 
-  const [submission, refetch] = useSubmission();
+  const {submission, refetch} = useSubmission();
+  console.log(refetch)
   const axiosSecure = useAxiosSecure();
   const [modal, setModal] = useState(null);
 
@@ -29,7 +31,7 @@ const BuyerHome = () => {
   
       if (data.modifiedCount > 0) {
         const worker = users.find(user => user.email === submission.worker_email);
-       console.log(worker)
+      
         if (worker) {
           const WorkerCoin = (worker.coin || 0) + submission.payable_amount;
     
@@ -38,7 +40,7 @@ const BuyerHome = () => {
           const coinUpdate = await axiosSecure.patch(`/user/coin/${worker._id}`, {
             coin: WorkerCoin,
           });
-  
+         
           if (coinUpdate.data.modifiedCount > 0) {
             Swal.fire({
               position: "top-end",
@@ -47,7 +49,7 @@ const BuyerHome = () => {
               showConfirmButton: false,
               timer: 1500,
             });
-            refetch(); // Refetch data to update the UI
+            refetch();
           } else {
             console.error("Failed to update worker's coins in the backend.");
           }
@@ -114,7 +116,7 @@ const BuyerHome = () => {
 
       {/* Table */}
       <h2 className="text-xl font-semibold mb-4">
-        Task Submissions: {submission.length}
+        Task Submissions
       </h2>
       <table className="table-auto w-full border">
         <thead>

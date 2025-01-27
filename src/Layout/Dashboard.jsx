@@ -9,7 +9,7 @@ import History from "../Pages/Buyer/History";
 
 const Dashboard = () => {
     const [role] = useRole(); 
-  // const role="buyer"
+   //const role="worker"
   
    if (role === undefined) {
     return <div>Loading...</div>;
@@ -100,10 +100,12 @@ const Dashboard = () => {
             <div className="flex-1 py-8">
                 
                 <Outlet></Outlet>
-               
             </div>
             </div>   
-            <History></History>           
+               {
+                role === "buyer" ? <History></History>  :<></>
+               } 
+                     
         </div>
     );
 };

@@ -9,11 +9,12 @@ const History = () => {
 
     const { data: payments = [] } = useQuery({
         queryKey: ['payments', user.email],
+        enabled: !!user?.email,
         queryFn: async () => {
             const res = await axiosSecure.get(`/payments/${user.email}`)
-            //console.log(res.data)
             return res.data;
-        }
+        },
+        refetchInterval: 1000,
     })                         
   return (
     <div className="overflow-x-auto p-4">

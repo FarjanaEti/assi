@@ -24,7 +24,7 @@ const WorkerHome = () => {
             <div className="grid grid-cols-3 gap-4 mb-6">
                 <div className="bg-blue-100 p-4 rounded">
                     <h3 className="text-lg font-semibold">Total approve</h3>
-                    <p className="text-2xl">{tasks.length}</p>
+                    <p className="text-2xl">{approve.length}</p>
                 </div>
                     <div className="bg-yellow-100 p-4 rounded">     
                     <h3 className="text-lg font-semibold">Total Pending approve</h3>

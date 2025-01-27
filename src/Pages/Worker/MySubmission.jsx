@@ -83,7 +83,7 @@ const MySubmissions = () => {
                     {submission.status}
                   </td>
                   <td className="border border-gray-200 p-2">
-                    {new Date(submission.current_date).toLocaleDateString()}
+                    {new Date(submission.submitted_date).toLocaleDateString()}
                   </td>
                 </tr>
               ))}

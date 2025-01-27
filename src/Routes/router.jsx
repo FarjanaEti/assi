@@ -87,6 +87,10 @@ import Withdraw from "../Pages/Worker/Withdraw";
           path:'Purchase',
           element:<Purchase></Purchase>
         },
+        {
+          path:'history',
+          element:<History></History>
+        },
         //worker
         {
        path:'workerHome',
@@ -111,8 +115,5 @@ import Withdraw from "../Pages/Worker/Withdraw";
     ],
     
     },
-    {
-      path:'history',
-      element:<History></History>
-    }
+    
   ]);
