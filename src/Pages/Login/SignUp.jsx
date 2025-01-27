@@ -8,11 +8,12 @@ import useAxiosPublic from "../../hooks/useAxiosPublic";
 import SocialLogin from "../socialLogin/SocialLogin";
 import Lottie from "lottie-react";
 import lottieAnimation from "../../assets/Animation - 1733851369003.json";
+import { FaGoogle } from "react-icons/fa";
 
 const SignUp = () => {
     const axiosPublic = useAxiosPublic();
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
-    const { createUser, updateUserProfile } = useContext(AuthContext);
+    const { createUser, updateUserProfile,googleSignIn } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const onSubmit = async (data) => {
@@ -51,6 +52,45 @@ const SignUp = () => {
         }
     };
 
+    //google signup
+    const handleGoogleLogin = () => {
+        googleSignIn()
+          .then((res) => {
+            const user = res.user;
+            const userInfo = {
+                email: user?.email,
+                name: user?.displayName,
+                photoURL: user?.photoURL,  
+                role: 'worker',  
+                coin: 50,         
+            };
+    
+            axiosPublic
+              .post('/users', userInfo)
+              .then((res) => {
+                console.log(res.data);
+                navigate('/login'); 
+              })
+              .catch((error) => {
+                console.error('Error storing user data:', error);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: error.message || 'There was a problem storing your data.',
+                });
+              });
+          })
+          .catch((err) => {
+            console.error(err);
+            Swal.fire({
+              icon: 'error',
+              title: 'Google Login Failed',
+              text: err.message || 'Something went wrong with Google sign-in.',
+            });
+          });               
+    }
+    
+    
     return (
         <>
             <Helmet>
@@ -162,7 +202,7 @@ const SignUp = () => {
                                 </Link>
                             </small>
                         </p>
-                        <SocialLogin />
+                        <button onClick={handleGoogleLogin} className="btn ml-7 mb-3"><FaGoogle></FaGoogle> Register With Google</button>
                     </div>
                 </div>
             </div>

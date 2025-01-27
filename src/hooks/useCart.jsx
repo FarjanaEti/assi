@@ -1,4 +1,3 @@
-// api, axios (axios secure), tan stack 
 
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "./useAuth";

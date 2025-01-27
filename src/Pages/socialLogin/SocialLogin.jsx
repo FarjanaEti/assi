@@ -18,11 +18,9 @@ const SocialLogin = () => {
         const userInfo = {
           email: user?.email,
           name: user?.displayName,
-          role: 'buyer', 
+          role: 'worker', 
           coin: 50,
         };
-
-        // Send user info to your backend
         axiosPublic
           .post('/users', userInfo)
           .then((res) => {

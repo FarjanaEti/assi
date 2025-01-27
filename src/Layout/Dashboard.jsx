@@ -8,12 +8,12 @@ import { Helmet } from "react-helmet-async";
 import History from "../Pages/Buyer/History";
 
 const Dashboard = () => {
-    //const [role] = useRole(); 
-   const role="buyer"
+    const [role] = useRole(); 
+  // const role="buyer"
   
    if (role === undefined) {
     return <div>Loading...</div>;
-}
+      }
 
     return (
         <div className="flex flex-col">
