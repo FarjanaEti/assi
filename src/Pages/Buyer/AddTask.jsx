@@ -76,12 +76,12 @@ const AddTask = () => {
   };
 
   return (
-    <div className="ml-5">
+    <div className="ml-2">
        <Helmet>
                       <title>Earnify | DashBoard | AddTask</title>
                   </Helmet>
       
-      <div className="p-4 bg-blue-100 rounded shadow">
+      <div className="p-2 bg-blue-100 rounded shadow">
         <p className="text-3xl text-center">Add New Task</p>
       <p className="text-center mb-4">Available Coins: {userCoin}</p>
       </div>

@@ -3,8 +3,8 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 
 import img1 from '../../assets/home/b-2.gif';
-import img3 from '../../assets/home/b-1.jpg';
-import img4 from '../../assets/home/b-3.png';
+import img3 from '../../assets/home/bn-5.jpg';
+import img4 from '../../assets/home/bn-4.webp';
 import SectionTitle from '../../Component/SectionTitle';
 
 const Banner = () => {

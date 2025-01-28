@@ -12,8 +12,8 @@ const Purchase = () => {
   ];
 
   return (
-    <div>
-    <div className="p-4 bg-blue-100 rounded shadow ml-5 mb-3">
+    <div className="px-4">
+    <div className="p-4  bg-blue-100 rounded shadow ml-5 mb-3">
         <p className="text-3xl text-center">Purchases Coin</p>
       
       </div>

@@ -8,8 +8,8 @@ import { Helmet } from "react-helmet-async";
 import History from "../Pages/Buyer/History";
 
 const Dashboard = () => {
-    const [role] = useRole(); 
-   //const role="worker"
+   // const [role] = useRole(); 
+   const role="admin"
   
    if (role === undefined) {
     return <div>Loading...</div>;
@@ -24,8 +24,8 @@ const Dashboard = () => {
                 {/* Dashboard Content */}
                <DashTop></DashTop>
             </div>   
-            <div className="flex">
-            <div className="w-64 min-h-screen px-8 border bg-cyan-300 text-white">
+            <div className="lg:flex">
+            <div className="lg:w-64 w-full lg:min-h-screen px-8 border bg-cyan-300 text-white">
                 <ul className="menu p-4">
                     {role === "admin" ? (
                         <>

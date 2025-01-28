@@ -2,17 +2,21 @@ import React from 'react';
 import useTask from '../../hooks/useTask';
 import useSubmission from '../../hooks/useSubmission';
 import { Helmet } from 'react-helmet-async';
+import useAuth from '../../hooks/useAuth';
 
 const WorkerHome = () => {
+    const {user}=useAuth()
     const [tasks]=useTask();
-    const [submission]=useSubmission()
+    const {submission}=useSubmission()
 
     //all total
     const PendingSub = submission.filter(sub => sub.status === "pending").length;
     const earning = submission.filter(sub => sub.status === "approved")
         .reduce((sum, sub) => sum + sub.payable_amount, 0);
-    const approve = submission.filter(sub => sub.status === "approved");
-
+        const userSubmission = submission.filter((t) => t.
+        worker_email === user.email);
+        const approve = userSubmission.filter(sub => sub.status === "approved");
+        console.log(userSubmission,approve)
      return (                         
   <div className="p-4">
      <Helmet>
@@ -23,11 +27,11 @@ const WorkerHome = () => {
             {/* Header */}
             <div className="grid grid-cols-3 gap-4 mb-6">
                 <div className="bg-blue-100 p-4 rounded">
-                    <h3 className="text-lg font-semibold">Total approve</h3>
+                    <h3 className="text-lg font-semibold">Total submission</h3>
                     <p className="text-2xl">{approve.length}</p>
                 </div>
                     <div className="bg-yellow-100 p-4 rounded">     
-                    <h3 className="text-lg font-semibold">Total Pending approve</h3>
+                    <h3 className="text-lg font-semibold">Total Pending submission</h3>
                     <p className="text-2xl">{PendingSub}</p>
                 </div>
                

@@ -121,21 +121,21 @@ const BuyerHome = () => {
       <table className="table-auto w-full border">
         <thead>
           <tr className="bg-gray-200">
-            <th className="px-4 py-2">Worker Name</th>
-            <th className="px-4 py-2">Task Title</th>
-            <th className="px-4 py-2">Payable Amount</th>
+            <th className="md:px-2 py-2">Task Title</th>
+            <th className="md:px-2 py-2">Worker Name</th>
+            <th className="md:px-4 py-2">Payable Amount</th>
             <th className="px-4 py-2">Details</th>
-            <th className="px-4 py-2">Actions</th>
+            <th className="md:px-4 py-2">Actions</th>
           </tr>
         </thead>
         <tbody>
           {submission.map((sub) =>
             sub.status === "pending" ? (
               <tr key={sub.id} className="border">
-                <td className="px-10 border py-2">{sub.worker_name}</td>
-                <td className="px-10 border py-2">{sub.task_title}</td>
-                <td className="px-10 border py-2">${sub.payable_amount}</td>
-                <td className="px-10 border py-2">
+                <td className=" border py-2">{sub.worker_name}</td>
+                <td className="px-2 md:px-10 border py-2">{sub.task_title}</td>
+                <td className="px-2 md:px-10 border py-2">${sub.payable_amount}</td>
+                <td className="px-2 md:px-10 border py-2">
                   <button
                     className="bg-blue-500 text-white px-2 py-1 rounded mr-2"
                     onClick={() => setModal(sub)}

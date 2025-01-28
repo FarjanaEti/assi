@@ -10,7 +10,7 @@ import How_it_work from './How_it_work';
 
 const Home = () => {
    return (
-      <div>
+      <div className='border px-5'>
       <Helmet>
             <title>Earnify| Home</title>
       </Helmet>
@@ -18,7 +18,7 @@ const Home = () => {
      <How_it_work></How_it_work>
      <TopWorker></TopWorker> 
      <FindJob></FindJob>
-     <Work></Work>
+      <Work></Work>
      <Testimonials></Testimonials>   
      <Footer></Footer>                             
      </div>
