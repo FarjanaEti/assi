@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import useTask from "../../hooks/useTask";
-//import useSubmission from "../../hooks/useSubmission";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
@@ -22,9 +21,13 @@ const BuyerHome = () => {
     email === user.email);
 
  //total pay
-  const totalPayment = submission.reduce((total, sub) => {
-    return sub.status === "approved" ? total + sub.payable_amount : total;
-  }, 0);
+ const userSubmission = submission.filter((t) => t.
+    worker_email === user.email);
+
+const totalPayment =userSubmission.reduce((total, sub) => {
+  return sub.status === "approved" ? total + sub.payable_amount : total;
+}, 0);
+
   //approve status
   const handleApprove = async (submission) => {
     console.log(submission)

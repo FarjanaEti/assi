@@ -7,7 +7,7 @@
  submissions . Admins have full control over user 
  management, tasks, and platform functionality.
 
- Admin Username:**'etimourakkhieti@gmail.com' (google)** or **'farja@na.com'(email password)**
+ Admin Username:**'farja@na.com'(email password)**
  Admin Password: Eti123#
  Live Site URL:https://assignment-12-6a1a7.web.app/
 
