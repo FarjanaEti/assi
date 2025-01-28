@@ -6,16 +6,20 @@ import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
 import useUsers from "../../hooks/useUsers";
 import useSubmission from "../../hooks/useSubmission";
+import useAuth from "../../hooks/useAuth";
 
 
 const BuyerHome = () => {
   const [task] = useTask();
+  const {user}=useAuth();
   const [users]=useUsers()
-
   const {submission, refetch} = useSubmission();
-
   const axiosSecure = useAxiosSecure();
   const [modal, setModal] = useState(null);
+
+  //total task
+  const userTask = task.filter((t) => t.
+    email === user.email);
 
  //total pay
   const totalPayment = submission.reduce((total, sub) => {
@@ -97,12 +101,12 @@ const BuyerHome = () => {
       <div className="grid grid-cols-3 gap-4 mb-8">
         <div className="p-4 bg-blue-100 rounded shadow">
           <h2 className="font-semibold">Total Tasks</h2>
-          <p>{task.length}</p>
+          <p>{userTask.length}</p>
         </div>
         <div className="p-4 bg-green-100 rounded shadow">
           <h2 className="font-semibold">Pending Tasks</h2>
           <p>
-            {task.reduce(
+            {userTask.reduce(
               (total, task) => total + (task.required_workers || 0),
               0
             )}
@@ -121,8 +125,8 @@ const BuyerHome = () => {
       <table className="table-auto w-full border">
         <thead>
           <tr className="bg-gray-200">
-            <th className="md:px-2 py-2">Task Title</th>
             <th className="md:px-2 py-2">Worker Name</th>
+            <th className="md:px-2 py-2">Task Title </th>
             <th className="md:px-4 py-2">Payable Amount</th>
             <th className="px-4 py-2">Details</th>
             <th className="md:px-4 py-2">Actions</th>
@@ -137,13 +141,13 @@ const BuyerHome = () => {
                 <td className="px-2 md:px-10 border py-2">${sub.payable_amount}</td>
                 <td className="px-2 md:px-10 border py-2">
                   <button
-                    className="bg-blue-500 text-white px-2 py-1 rounded mr-2"
+                    className="bg-blue-500 text-white px-2 md:py-1 rounded mr-2"
                     onClick={() => setModal(sub)}
                   >
                     View Submission
                   </button>
                 </td>
-                <td className="px-10 py-2">
+                <td className="px-2 md:px-10 py-2">
                   <button
                     className="bg-green-500 text-white px-4 py-1 rounded mr-2"
                     onClick={() => handleApprove(sub)}

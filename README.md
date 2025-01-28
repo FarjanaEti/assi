@@ -9,7 +9,7 @@
 
  Admin Username:**'etimourakkhieti@gmail.com' (google)** or **'farja@na.com'(email password)**
  Admin Password: Eti123#
- Live Site URL:https://assignment-12-6a1a7.web.app
+ Live Site URL:https://assignment-12-6a1a7.web.app/
 
  ##KEY FEATURES OF EARNIFY
 
