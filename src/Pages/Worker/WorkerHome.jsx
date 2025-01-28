@@ -11,12 +11,12 @@ const WorkerHome = () => {
 
     //all total
     const PendingSub = submission.filter(sub => sub.status === "pending").length;
-    const earning = submission.filter(sub => sub.status === "approved")
+    const userSubmission = submission.filter((t) => t.
+    worker_email === user.email);
+    const earning = userSubmission.filter(sub => sub.status === "approved")
         .reduce((sum, sub) => sum + sub.payable_amount, 0);
-        const userSubmission = submission.filter((t) => t.
-        worker_email === user.email);
         const approve = userSubmission.filter(sub => sub.status === "approved");
-        console.log(userSubmission,approve)
+      
      return (                         
   <div className="p-4">
      <Helmet>
@@ -28,7 +28,7 @@ const WorkerHome = () => {
             <div className="grid grid-cols-3 gap-4 mb-6">
                 <div className="bg-blue-100 p-4 rounded">
                     <h3 className="text-lg font-semibold">Total submission</h3>
-                    <p className="text-2xl">{approve.length}</p>
+                    <p className="text-2xl">{userSubmission.length}</p>
                 </div>
                     <div className="bg-yellow-100 p-4 rounded">     
                     <h3 className="text-lg font-semibold">Total Pending submission</h3>

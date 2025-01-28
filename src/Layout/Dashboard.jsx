@@ -10,7 +10,6 @@ import History from "../Pages/Buyer/History";
 const Dashboard = () => {
     const [role] = useRole(); 
     console.log(role)
-   //const role="admin"
   
    if (role === undefined) {
     return <div>Loading...</div>;
