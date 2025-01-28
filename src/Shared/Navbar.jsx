@@ -68,12 +68,14 @@ const Navbar = () => {
         <div className="navbar-end">
             {user ? (
                 <img
-                    src={user.url || "https://picsum.photos/150"}
+                    src={user.
+                        photoURL
+                         || "https://picsum.photos/150"}
                     alt="user"
-                    className="w-12 h-10 rounded-full border"
+                    className="w-12 mr-1 h-10 rounded-full border"
                 />
             ) : null}
-            <Link className="btn-ghost  mr-2" to={'https://github.com/'}>Join as Developer</Link>
+            <Link className="btn-ghost mr-2" to={'https://github.com/'}>Join as Developer</Link>
         </div>
     </div>
       );

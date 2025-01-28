@@ -23,6 +23,7 @@ import PrivateRout from "./PrivateRoute";
 import AdminRout from "./AdminRout";
 import { History } from "swiper/modules";
 import Withdraw from "../Pages/Worker/Withdraw";
+import Error from "../Component/Error";
 
 
 
@@ -30,6 +31,7 @@ import Withdraw from "../Pages/Worker/Withdraw";
     {
       path: "/",
       element: <Main></Main>,
+      errorElement:<Error></Error>,
       children: [
         {
             path: '/',
