@@ -15,7 +15,7 @@ const AdminHome = () => {
     useEffect(() => {
         const fetchWithdrawRequests = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/withdraw');
+                const response = await axios.get('https://assignment-12-server-beta-one.vercel.app/withdraw');
                 const data = response.data;
                 setWithdrawRequests(Array.isArray(data) ? data : []);
             } catch (err) {
@@ -28,7 +28,7 @@ const AdminHome = () => {
     // Handle payment success
     const handlePaymentSuccess = async (id, withdrawal_amount, worker_email) => {
         try {
-            const response = await axios.patch(`http://localhost:5000/withdraw/${id}`, {
+            const response = await axios.patch(`https://assignment-12-server-beta-one.vercel.app/withdraw/${id}`, {
                 withdrawal_amount,
                 worker_email,
             });

@@ -16,7 +16,7 @@ const TaskDetails = () => {
    useEffect(() => {
     const idTask = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/tasks/${id}`);
+        const response = await fetch(`https://assignment-12-server-beta-one.vercel.app/tasks/${id}`);
         const data = await response.json();
         setTask(data);
       } catch (error) {

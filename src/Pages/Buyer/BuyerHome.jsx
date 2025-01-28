@@ -13,7 +13,7 @@ const BuyerHome = () => {
   const [users]=useUsers()
 
   const {submission, refetch} = useSubmission();
-  console.log(refetch)
+
   const axiosSecure = useAxiosSecure();
   const [modal, setModal] = useState(null);
 

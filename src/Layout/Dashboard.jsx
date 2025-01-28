@@ -8,8 +8,9 @@ import { Helmet } from "react-helmet-async";
 import History from "../Pages/Buyer/History";
 
 const Dashboard = () => {
-   // const [role] = useRole(); 
-   const role="admin"
+    const [role] = useRole(); 
+    console.log(role)
+   //const role="admin"
   
    if (role === undefined) {
     return <div>Loading...</div>;

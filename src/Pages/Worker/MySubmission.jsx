@@ -13,7 +13,7 @@ const MySubmissions = () => {
     const fetchSubmissions = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/submission?email=${user.email}`
+          `https://assignment-12-server-beta-one.vercel.app/submission?email=${user.email}`
         );
         const data = await response.json();
         setSubmissions(data);
