@@ -97,7 +97,7 @@ const Withdraw = () => {
           Withdraw
         </button>
        ) : (
-        <p className="text-red-500 font-medium">Insufficient coins to withdraw</p>
+        <p className="text-red-500 font-medium">Insufficient coins to withdraw Earn at list 200 coin to withdraw</p>
       )} 
     </div>
   );

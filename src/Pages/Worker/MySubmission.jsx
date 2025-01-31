@@ -140,7 +140,7 @@ const MySubmissions = () => {
           </div>
         </>
       ) : (
-        <p>No submissions found.</p>
+        <p>No submissions found yet. Please submit your work first</p>
       )}
     </div>
   );
