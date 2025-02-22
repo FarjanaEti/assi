@@ -24,6 +24,7 @@ import AdminRout from "./AdminRout";
 import { History } from "swiper/modules";
 import Withdraw from "../Pages/Worker/Withdraw";
 import Error from "../Component/Error";
+import Api from "../Component/Api";
 
 
 
@@ -36,6 +37,10 @@ import Error from "../Component/Error";
         {
             path: '/',
             element: <Home></Home>
+        },
+        {
+            path: '/api',
+            element: <Api></Api>
         },
         {
          path:'/signup',

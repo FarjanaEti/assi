@@ -39,6 +39,14 @@ const TopWorker = () => {
           </div>
         ))}
       </div>
+      <div className="mt-12 text-center">
+        <a
+          href="/signup"
+          className="inline-block px-6 py-3 bg-cyan-300 text-white text-lg font-medium rounded-lg shadow-md hover:bg-blue-700"
+        >
+          See More
+        </a>
+      </div>
     </div>
   );
 };

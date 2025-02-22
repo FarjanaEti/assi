@@ -18,6 +18,7 @@ const Navbar = () => {
     const navOptions = (
         <>
             <li className="inline-block mx-2"><Link to="/">Home</Link></li>  
+            <li className="inline-block mx-2"><Link to="/api">API</Link></li>  
             {user && <li className="inline-block mx-2"><Link to="/dashboard">Dashboard</Link></li>} 
             {user && (
                 <li className="inline-block mx-2">
