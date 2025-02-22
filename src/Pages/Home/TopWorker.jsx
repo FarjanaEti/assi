@@ -9,7 +9,7 @@ const TopWorker = () => {
     .slice(0, 6); 
 
   return (
-    <div>  
+    <div className="bg-gray-100">  
        <div className='relative -mt-16 w-full h-72 flex items-center justify-center overflow-hidden'>
         <div className='absolute w-full h-14 rounded-2xl bg-cyan-200 rotate-3'></div>
         <div className='absolute w-full h-14 rounded-2xl bg-fuchsia-100 -rotate-3'></div>
@@ -39,7 +39,7 @@ const TopWorker = () => {
           </div>
         ))}
       </div>
-      <div className="mt-12 text-center">
+      <div className="py-12 text-center">
         <a
           href="/signup"
           className="inline-block px-6 py-3 bg-cyan-300 text-white text-lg font-medium rounded-lg shadow-md hover:bg-blue-700"

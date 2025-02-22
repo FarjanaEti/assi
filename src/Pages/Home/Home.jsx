@@ -7,6 +7,7 @@ import TopWorker from './TopWorker';
 import FindJob from './FindJob';
 import Work from './Work';
 import How_it_work from './How_it_work';
+import RecentJob from './RecentJob';
 
 const Home = () => {
    return (
@@ -17,6 +18,7 @@ const Home = () => {
      <Banner></Banner>   
      <How_it_work></How_it_work>
      <TopWorker></TopWorker> 
+     <RecentJob></RecentJob>
      <FindJob></FindJob>
       <Work></Work>
      <Testimonials></Testimonials>   
