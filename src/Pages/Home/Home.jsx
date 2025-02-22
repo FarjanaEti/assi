@@ -8,6 +8,7 @@ import FindJob from './FindJob';
 import Work from './Work';
 import How_it_work from './How_it_work';
 import RecentJob from './RecentJob';
+import WhyChooseUs from './WhyChooseUs';
 
 const Home = () => {
    return (
@@ -22,6 +23,7 @@ const Home = () => {
      <FindJob></FindJob>
       <Work></Work>
      <Testimonials></Testimonials>   
+     <WhyChooseUs></WhyChooseUs>
      <Footer></Footer>                             
      </div>
                               );
