@@ -25,6 +25,7 @@ import { History } from "swiper/modules";
 import Withdraw from "../Pages/Worker/Withdraw";
 import Error from "../Component/Error";
 import Api from "../Component/Api";
+import Profile from "../Pages/Home/Profile";
 
 
 
@@ -49,7 +50,8 @@ import Api from "../Component/Api";
         {
           path:'/login',
           element:<Login></Login>
-        }
+        },
+        
       ]
     },
     {
@@ -59,6 +61,10 @@ import Api from "../Component/Api";
         {
         path:'payment',
         element:<Payment></Payment>
+        },
+        {
+          path:'profile',
+          element:<Profile></Profile>
         },
         //Admin
         {

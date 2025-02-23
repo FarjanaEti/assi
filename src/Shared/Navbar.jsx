@@ -4,6 +4,7 @@ import { GiTakeMyMoney } from "react-icons/gi";
 import { AuthContext } from "../Provider/AuthProvider";
 import 'animate.css';
 import useCart from "../hooks/useCart";
+import { CgProfile } from "react-icons/cg";
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);   
@@ -27,6 +28,7 @@ const Navbar = () => {
                     </Link>
                 </li>
             )}
+            
             {user ? (
                 <li className="inline-block mx-2">
                     <button onClick={handleLogOut} className="">LogOut</button>
@@ -63,17 +65,18 @@ const Navbar = () => {
         {/* Navbar Center */}
         <div className="navbar-center hidden lg:flex">
             <ul className="flex space-x-4">{navOptions}</ul>
+           
         </div>
 
         {/* Navbar End */}
         <div className="navbar-end">
-            {user ? (
+        {user ? (
                 <img
                     src={user.
                         photoURL
                          || "https://picsum.photos/150"}
                     alt="user"
-                    className="w-12 mr-1 h-10 rounded-full border"
+                    className="w-10 mr-1 h-10 rounded-full border"
                 />
             ) : null}
             <Link className="btn-ghost mr-2" to={'https://github.com/'}>Join as Developer</Link>

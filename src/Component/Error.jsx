@@ -13,7 +13,6 @@ const Error = () => {
 
 export default Error;
 // Featured Micro-Jobs – Showcase popular or high-paying micro-jobs to attract users.
-// Why Choose Us? – Showcase the benefits of using your platform compared to others.
 // Sales Promotion / Special Offers – If applicable, display any ongoing promotions or referral bonuses.
 // Newsletter Signup – Encourage users to subscribe for job updates and promotions
 

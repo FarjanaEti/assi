@@ -44,6 +44,12 @@ const Dashboard = () => {
                                     <FaTasks></FaTasks>
                                     Manage Task</NavLink>
                             </li>
+                            <li>
+            <NavLink to="/dashboard/profile">
+                <FaUser />
+                Profile
+            </NavLink>
+        </li>
                         </>
                     ) : role === "worker" ? (
                        <>
@@ -67,6 +73,12 @@ const Dashboard = () => {
                                 <FaMoneyCheckDollar />
                                    Withdrawals</NavLink>
                             </li>
+                            <li>
+            <NavLink to="/dashboard/profile">
+                <FaUser />
+                Profile
+            </NavLink>
+        </li>
                        </>
                     ) : role === "buyer" ? (
                        <>
@@ -90,7 +102,12 @@ const Dashboard = () => {
                                     <FaCoins></FaCoins>
                                     Purchase Coin</NavLink>
                             </li>
-                            
+                            <li>
+            <NavLink to="/dashboard/profile">
+                <FaUser />
+                Profile
+            </NavLink>
+        </li>
                        </>
                     ) : (
                         <li>Default Navigation</li>

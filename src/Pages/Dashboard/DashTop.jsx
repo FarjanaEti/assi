@@ -6,8 +6,6 @@ import { Link } from "react-router-dom";
 import useCart from "../../hooks/useCart";
 import useAuth from "../../hooks/useAuth";
 
-
-
 const DashTop = () => {
   const [cart] = useCart();
   const {user}=useAuth()                  
